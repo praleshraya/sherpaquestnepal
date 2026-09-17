@@ -1,0 +1,24 @@
+.about-hero{height:clamp(500px,53vw,660px);position:relative;color:#fff;overflow:hidden}
+.about-hero>img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.about-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#081d17d9,#09231a6b 56%,#09231a22)}
+.about-hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.about-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(88px,10vw,150px);line-height:.86;font-style:italic;margin:0;font-weight:900}
+.about-hero-copy>p:last-child{max-width:400px;font-size:16px;line-height:1.7}
+.about-story{display:grid;grid-template-columns:1fr 1fr;gap:12%;padding-block:105px}
+.about-story h2,.about-categories h2,.about-connection h2{font-size:clamp(58px,6vw,88px)}
+.about-story h2 em,.about-categories h2 em,.about-connection h2 em{color:var(--green)}
+.about-story-copy{padding-top:34px;color:#4b5b50;font-size:16px;line-height:1.85}
+.about-story-copy p{margin:0 0 25px}
+.about-categories{background:#f3f6f3;padding:90px 0 105px}
+.about-category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:45px}
+.about-category-grid a{min-height:105px;background:#fff;padding:25px;display:flex;align-items:end;justify-content:space-between;font-size:15px;font-weight:800;letter-spacing:.05em}
+.about-category-grid a:hover{background:#deebe2;color:var(--green)}
+.about-category-grid span{color:var(--green);font-size:26px}
+.about-connection{display:grid;grid-template-columns:1fr 1fr;gap:12%;padding-block:105px}
+.about-connection>div:first-child>p:last-child{max-width:360px;line-height:1.8;color:#4b5b50}
+.about-contact-links{display:flex;flex-direction:column;border-top:1px solid var(--line);align-self:center}
+.about-contact-links a{display:grid;grid-template-columns:1fr auto;gap:6px;border-bottom:1px solid var(--line);padding:20px 0}
+.about-contact-links small{grid-column:1/-1;color:var(--green);font-size:10px;font-weight:800;letter-spacing:.12em}
+.about-contact-links strong{font-size:17px;overflow-wrap:anywhere}
+.about-contact-links a:hover strong{text-decoration:underline}
+@media(max-width:760px){.about-hero{height:540px}.about-hero h1{font-size:clamp(73px,15vw,110px)}.about-hero-copy>p:last-child{font-size:14px}.about-story,.about-connection{grid-template-columns:1fr;gap:20px;padding-block:75px}.about-story-copy{padding-top:0;font-size:14px}.about-categories{padding:75px 0}.about-category-grid{grid-template-columns:repeat(2,1fr);gap:8px}.about-category-grid a{min-height:90px;padding:15px;font-size:11px}}
