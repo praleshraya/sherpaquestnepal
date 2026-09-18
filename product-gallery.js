@@ -4,6 +4,22 @@ const sizeOptions = document.querySelectorAll('[data-option-size]');
 const colorOptions = document.querySelectorAll('[data-option-color]');
 const inquiry = document.querySelector('#product-inquiry');
 const imageStatus = document.querySelector('#color-image-status');
+const imageStage = document.querySelector('.product-main-image');
+const galleryGroups = document.querySelectorAll('[data-gallery-group]');
+
+function showColorGroup(color) {
+  if (!galleryGroups.length || !color) {
+    galleryGroups.forEach(group => { group.hidden = false; });
+    return;
+  }
+  const hasColor = [...galleryGroups].some(group => group.dataset.galleryGroup === color);
+  const hasOther = [...galleryGroups].some(group => group.dataset.galleryGroup === 'Other views');
+  galleryGroups.forEach(group => {
+    group.hidden = hasColor
+      ? group.dataset.galleryGroup !== color && group.dataset.galleryGroup !== 'Other views'
+      : hasOther && group.dataset.galleryGroup !== 'Other views';
+  });
+}
 
 function showImage(src, alt) {
   if (!productImage) return;
@@ -25,7 +41,7 @@ function updateInquiry() {
   inquiry.href = `https://wa.me/9779744464587?text=${encodeURIComponent(message)}`;
 }
 
-productThumbs.forEach(button => button.addEventListener('click', () => {
+function activateThumb(button) {
   showImage(button.dataset.gallerySrc, button.dataset.galleryAlt);
   const picturedColor = button.dataset.galleryColor;
   if (picturedColor) {
@@ -35,9 +51,34 @@ productThumbs.forEach(button => button.addEventListener('click', () => {
       option.setAttribute('aria-pressed', String(active));
     });
     if (imageStatus) imageStatus.textContent = `Showing ${picturedColor} product photo.`;
+    showColorGroup(picturedColor);
     updateInquiry();
   }
-}));
+}
+
+productThumbs.forEach(button => button.addEventListener('click', () => activateThumb(button)));
+
+function moveGallery(direction) {
+  const visible = [...productThumbs].filter(thumb => !thumb.closest('[data-gallery-group]')?.hidden);
+  if (visible.length < 2) return;
+  const current = visible.findIndex(thumb => thumb.classList.contains('active'));
+  const next = (current + direction + visible.length) % visible.length;
+  activateThumb(visible[next]);
+  visible[next].scrollIntoView({block:'nearest', inline:'nearest', behavior:'smooth'});
+}
+
+document.querySelector('.gallery-prev')?.addEventListener('click', () => moveGallery(-1));
+document.querySelector('.gallery-next')?.addEventListener('click', () => moveGallery(1));
+let touchStartX = null;
+imageStage?.addEventListener('touchstart', event => {
+  touchStartX = event.changedTouches[0]?.screenX ?? null;
+}, {passive:true});
+imageStage?.addEventListener('touchend', event => {
+  if (touchStartX === null) return;
+  const distance = (event.changedTouches[0]?.screenX ?? touchStartX) - touchStartX;
+  if (Math.abs(distance) > 45) moveGallery(distance < 0 ? 1 : -1);
+  touchStartX = null;
+}, {passive:true});
 
 sizeOptions.forEach(button => button.addEventListener('click', () => {
   sizeOptions.forEach(option => {
@@ -55,6 +96,7 @@ colorOptions.forEach(button => button.addEventListener('click', () => {
     option.setAttribute('aria-pressed', String(active));
   });
   const color = button.dataset.optionColor;
+  showColorGroup(color);
   if (button.dataset.previewSrc) {
     showImage(button.dataset.previewSrc, `${inquiry?.dataset.productName || 'Product'} — ${color}`);
     if (imageStatus) imageStatus.textContent = `Showing ${color} product photo.`;
@@ -66,3 +108,4 @@ colorOptions.forEach(button => button.addEventListener('click', () => {
 }));
 
 updateInquiry();
+showColorGroup(document.querySelector('[data-option-color][aria-pressed="true"]')?.dataset.optionColor);

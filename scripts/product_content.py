@@ -59,18 +59,84 @@ STORIES = {
     'jyd-c65': 'A group intercom designed for rides with several people. Its eight-rider network helps a crew stay connected on the road.',
 }
 
+NEW_STORIES = {
+    'kp101ep01-knee-elbow-guard': 'Protect your knees and elbows with ergonomic guards designed to stay in place on the ride. Their shaped shells and padded construction cover the areas riders reach for first in a fall.',
+    'kp16ep16-mx-knee-elbow-guard': 'The KP16EP16 guard set is shaped for dirt riding, with a three-section knee design that bends with your leg. Its hard shell adds impact coverage for more demanding routes.',
+    'wt01-motorcycle-lumbar-support': 'The WT01 supports the lower back on long days in the saddle. A firm outer structure and breathable contact panels help distribute pressure without trapping as much heat.',
+    'mh01-traillock-pro-phone-mount': 'Keep navigation in sight with a motorcycle phone mount built to reduce vibration at the handlebars. The MH01 secures the phone while leaving it accessible for the next stop.',
+    'mh02-traillock-x-pro-phone-camera-mount': 'The MH02 carries a phone and action camera from one motorcycle mounting point. Vibration damping helps keep both devices steadier over uneven roads.',
+    'osah-edge-pro-40l-duffel-bag': 'A 40L duffel for touring loads and weekend trips. The Edge Pro gives riders a roomy, weather-ready bag that can move from the motorcycle to camp.',
+    'osah-scout-tank-bag-6l': 'The Scout puts 6L of quick-access storage above the tank. Its compact body and strap mounting suit riders who want essentials close without a larger touring bag.',
+    'osah-6l-adv-crash-bar-tail-bag': 'A versatile 6L bag for a crash bar or tail section. It carries small tools and ride essentials in a compact package, with black and green photos available to compare.',
+    'osah-outrider-hydration-bag': 'The Outrider is a 13L riding pack with a 2L hydration bladder. It keeps water and small gear within reach when stops are far apart.',
+    'osah-stretch-straps': 'Secure a changing luggage load with flexible OSAH stretch straps. They are a simple addition to a touring setup when bags need extra restraint.',
+    'osah-10l-drypak': 'A 10L dry bag for layers, tools or camp gear. Welded seams and a waterproof PVC shell help keep the contents protected through wet rides.',
+    'osah-20l-drypak': 'A 20L dry bag for bulkier touring essentials. Its waterproof PVC construction and welded seams are designed for weather-exposed luggage.',
+    'ilm-magnetic-tank-bag': 'Keep ride essentials above the tank with an ILM bag that uses magnets and straps for mounting. It can be taken off the bike with the included shoulder strap.',
+    'ilm-motorcycle-adventure-backpack': 'A riding backpack with a supportive waist harness and room for everyday trail essentials. Its stable fit suits motorcycle trips and active days away from the bike.',
+    'ilm-balaclava-fm02': 'A light layer under the helmet for wind, dust and sun exposure. The FM02 also helps keep sweat and hair oils away from the helmet lining.',
+    'rhinowalk-multifunctional-vest': 'Wear quick-access storage without a full backpack. This Rhinowalk vest combines pockets, adjustable fit and a breathable back for rides and outdoor use.',
+    'mjw-6l-crash-bar-bag': 'A compact 6L bag for tools and quick-access gear on an adventure motorcycle. Its weather-resistant construction helps protect contents in changing conditions.',
+}
+
+NEW_FEATURES = {
+    'kp101ep01-knee-elbow-guard': ['Ergonomic shells shaped for knee and elbow coverage', 'Padded contact areas for a more comfortable fit', 'CE Level 2 certification stated in the workbook'],
+    'kp16ep16-mx-knee-elbow-guard': ['Three-section knee design moves with the leg', 'Impact-resistant PC middle shell', 'Guards supplied for knee and elbow protection'],
+    'wt01-motorcycle-lumbar-support': ['High-density PP support shell helps spread pressure', 'Breathable panels improve comfort during longer rides', 'Adjustable support around the lower back'],
+    'mh01-traillock-pro-phone-mount': ['Vibration-damped phone support', 'Keeps navigation visible at the handlebar', 'Secure grip for a phone on the move'],
+    'mh02-traillock-x-pro-phone-camera-mount': ['Phone and action camera mounting in one unit', 'Vibration-damped support', 'Keeps both devices accessible on the ride'],
+    'osah-edge-pro-40l-duffel-bag': ['40L storage for touring gear', 'Carry handles for moving the bag off the motorcycle', 'Durable exterior made for outdoor travel'],
+    'osah-scout-tank-bag-6l': ['Compact 6L tank-top storage', 'Clipped lid for quick access', 'Strap mounting for a range of motorcycles'],
+    'osah-6l-adv-crash-bar-tail-bag': ['6L space for tools and ride essentials', 'Mounts at a crash bar or tail section', 'Black and green variants pictured'],
+    'osah-outrider-hydration-bag': ['13L pack with an included 2L bladder', 'Water access while riding', 'Organized space for small trail essentials'],
+    'osah-stretch-straps': ['Flexible straps adapt to different luggage loads', 'Quick way to secure extra gear', 'Useful with touring bags and dry packs'],
+    'osah-10l-drypak': ['500D PVC waterproof fabric', 'Watertight welded seams', 'Secure buckle closure'],
+    'osah-20l-drypak': ['500D PVC waterproof fabric', 'Watertight welded seams', 'Extra 20L capacity for larger loads'],
+    'ilm-magnetic-tank-bag': ['Magnet and strap mounting options', 'Four short straps and a shoulder strap listed', 'Accessible storage above the fuel tank'],
+    'ilm-motorcycle-adventure-backpack': ['Waist harness helps distribute pack weight', 'Stable fit for riding and walking', 'Designed for motorcycle and trail use'],
+    'ilm-balaclava-fm02': ['Helps shield from wind, dust and sun', 'Keeps the helmet lining cleaner', 'Lightweight layer under a helmet'],
+    'rhinowalk-multifunctional-vest': ['Multiple pockets for accessible storage', 'Adjustable vest fit', 'Breathable back support'],
+    'mjw-6l-crash-bar-bag': ['Compact 6L utility storage', 'Weather-resistant bag construction', 'Grey and black variants pictured'],
+}
+
 
 def story(product):
-    return STORIES.get(product['id'], f"Explore {product['name']} for your next ride. Contact Sherpa Quest Nepal for the details that matter to your setup.")
+    return STORIES.get(product['id']) or NEW_STORIES.get(product['id']) or f"Explore {product['name']} for your next ride. Contact Sherpa Quest Nepal for the details that matter to your setup."
+
+
+def feature_points(product):
+    if product['id'] in NEW_FEATURES:
+        return NEW_FEATURES[product['id']]
+    text = product.get('description', '').lower()
+    candidates = [
+        ('waterproof liner', 'Removable waterproof liner helps protect packed gear'),
+        ('roll-top', 'Roll-top closure helps seal luggage against weather'),
+        ('quick-release', 'Quick-release design makes mounting and removal easier'),
+        ('ventilation', 'Ventilation helps manage heat during a ride'),
+        ('washable', 'Washable interior is easier to keep fresh'),
+        ('touchscreen', 'Touchscreen compatibility lets you use a device without removing gloves'),
+        ('molle', 'MOLLE attachments add flexible storage options'),
+        ('hydration', 'Hydration support keeps water close at hand'),
+        ('bluetooth', 'Bluetooth support helps riders stay connected'),
+        ('reflective', 'Reflective details improve visibility in low light'),
+        ('armor', 'Protective armor supports riding use'),
+    ]
+    points = [label for token, label in candidates if token in text][:4]
+    return points or [story(product)]
 
 
 def feature_rows(product):
     source = f"{product['name']} {product.get('description', '')}"
     lower = source.lower()
-    rows = [('Brand', product['brand']), ('Gear type', product['category'])]
+    rows = [('Brand', 'Not specified' if product['brand'] == 'UNBRANDED' else product['brand']), ('Gear type', product['category'])]
+    model = re.search(r'\b(?:KP\d+EP\d+|WT\d+|MH\d+)\b', product['name'], re.I)
+    if model:
+        rows.append(('Model', model.group(0)))
     capacity = re.search(r'\b(\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?)\s*(?:l|ltr|litres?)\b', product['name'], re.I)
+    if not capacity and product['id'] == 'osah-outrider-hydration-bag':
+        capacity = re.search(r'\b13\s*l\b', source, re.I)
     if capacity:
-        rows.append(('Capacity', capacity.group(1).replace(' ', '') + ' L'))
+        rows.append(('Capacity', (capacity.group(1).replace(' ', '') if capacity.lastindex else '13') + ' L'))
 
     materials = []
     for pattern, value in [
@@ -110,6 +176,12 @@ def feature_rows(product):
     elif 'waterproof liner' in lower or 'waterproof inner liner' in lower: weather = 'Removable waterproof liner'
     elif 'waterproof' in lower: weather = 'Waterproof construction'
     if weather: rows.append(('Weather protection', weather))
+
+    if product['category'] == 'Phone holders':
+        rows.append(('Mount type', 'Phone and action camera' if product['id'].startswith('mh02') else 'Phone'))
+        if 'vibration' in lower: rows.append(('Damping', 'Vibration-damped'))
+    if product['id'] == 'osah-outrider-hydration-bag':
+        rows.append(('Hydration bladder', '2 L included'))
 
     details = []
     for token, phrase in [
@@ -156,6 +228,17 @@ SIZE_AND_COLOR = {
     'arcx-l60024-lunar': (['41','42','43','44'], []),
     'arcx-l60746-aircore': (['40','41','42','43','44'], []),
     'ilm-mx3a-enduro': (['42','43'], []),
+    'osah-6l-adv-crash-bar-tail-bag': ([], ['Black','Green']),
+    'mjw-6l-crash-bar-bag': ([], ['Grey','Black']),
+    'osah-10l-drypak': ([], ['Blue','Olive']),
+    'osah-20l-drypak': ([], ['Blue','Olive']),
+    'osah-edge-pro-40l-duffel-bag': ([], ['Black']),
+    'osah-scout-tank-bag-6l': ([], ['Black']),
+    'osah-outrider-hydration-bag': ([], ['Black']),
+    'ilm-magnetic-tank-bag': ([], ['Black']),
+    'ilm-motorcycle-adventure-backpack': ([], ['Black']),
+    'ilm-balaclava-fm02': ([], ['Black']),
+    'rhinowalk-multifunctional-vest': ([], ['Black']),
 }
 
 COLOR_PREVIEWS = {
@@ -169,13 +252,15 @@ COLOR_PREVIEWS = {
     'ilm-z-501-helmet': {'Armor Red':'armor-red-01.jpg'},
     'ilm-mf-510-helmet': {'Sky Grey':'sky-grey-01.jpg'},
     'alien-monster-preadator-evolution': {'White':'sand-gloves.png','Green':'olive-gloves.png'},
+    'osah-6l-adv-crash-bar-tail-bag': {'Black':'black-01.jpg','Green':'green-01.jpg'},
+    'mjw-6l-crash-bar-bag': {'Grey':'grey-01.jpg','Black':'black-01.jpg'},
 }
 
 SWATCHES = {
     'Black':'#1a1a1c','Matte Black':'#242326','Gloss Black':'#080809',
     'White':'#f5f3f1','Gloss White':'#fff','Red':'#ba1427','Armor Red':'#b3192c',
     'Grey':'#77787d','Sky Grey':'#abb4bd','Blue':'#2463b7','Green':'#6d735d',
-    'Brown':'#8a5c3e','Red/Grey':'linear-gradient(135deg,#b51528 50%,#838388 50%)',
+    'Brown':'#8a5c3e','Olive':'#6f7656','Red/Grey':'linear-gradient(135deg,#b51528 50%,#838388 50%)',
     'Blue/White':'linear-gradient(135deg,#2565be 50%,#f7f7f7 50%)',
     'Red/Blue':'linear-gradient(135deg,#b51528 50%,#245eb3 50%)',
     'Red/Black':'linear-gradient(135deg,#b51528 50%,#1b1b1d 50%)',
@@ -191,4 +276,7 @@ def options_for(product):
 
 def color_preview(product, color):
     name = COLOR_PREVIEWS.get(product['id'], {}).get(color)
-    return f"assets/products/{product['id']}/{name}" if name else None
+    if name:
+        return f"assets/products/{product['id']}/{name}"
+    sizes, colors = options_for(product)
+    return product['image'] if len(colors) == 1 else None

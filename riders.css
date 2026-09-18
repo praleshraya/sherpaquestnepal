@@ -1,0 +1,25 @@
+.riders-hero{min-height:390px;display:flex;align-items:center;background:linear-gradient(90deg,#150d10e8,#270f16bd 47%,#1c101255),url('assets/banners/high-pass-road.webp') center 55%/cover;color:#fff}
+.riders-hero .shell{padding-block:70px}
+.riders-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(76px,10vw,145px);font-weight:900;font-style:italic;line-height:.83;margin:0}
+.riders-hero h1 em{color:#f04657}
+.riders-hero p:last-child{max-width:510px;margin:24px 0 0;font-size:14px;line-height:1.7;color:#f4e7e9}
+.riders-gallery{padding-block:82px 100px}
+.rider-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rider-card{position:relative;display:block;min-height:330px;overflow:hidden;border-radius:14px;background:#e8e3e3;color:#fff}
+.rider-card:nth-child(1),.rider-card:nth-child(6){grid-column:span 2}
+.rider-card img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .45s ease}
+.rider-card:hover img,.rider-card:focus-visible img{transform:scale(1.055)}
+.rider-card-shade{position:absolute;inset:0;background:linear-gradient(0deg,#0d090cdb,transparent 63%)}
+.rider-card-copy{position:absolute;left:25px;right:25px;bottom:23px;display:flex;flex-direction:column;gap:5px}
+.rider-card-copy small{font-size:9px;letter-spacing:.18em;font-weight:800;color:#ffbdc5}
+.rider-card-copy strong{font-family:'Barlow Condensed',sans-serif;font-size:34px;line-height:1;font-weight:800}
+.rider-card-copy>span{font-size:12px;color:#f7e9eb}
+.riders-share{background:#ab1022;color:#fff}
+.riders-share-inner{display:flex;align-items:end;justify-content:space-between;gap:35px;padding-block:65px}
+.riders-share h2{font-size:clamp(54px,6vw,84px)}
+.riders-share p:last-child{max-width:500px;font-size:14px;line-height:1.65;color:#ffe9ed}
+.riders-share a{display:inline-flex;align-items:center;justify-content:center;min-height:49px;padding:0 20px;background:#fff;color:#9d1122;font-size:11px;font-weight:800;letter-spacing:.07em;white-space:nowrap}
+.riders-share a:hover{background:#f9e9ec}
+@media(max-width:800px){.rider-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rider-card:nth-child(1),.rider-card:nth-child(6){grid-column:auto}.riders-share-inner{align-items:start;flex-direction:column}}
+@media(max-width:600px){.riders-hero{min-height:330px}.riders-hero .shell{padding-block:55px}.riders-hero h1{font-size:72px}.riders-gallery{padding-block:60px}.rider-grid{grid-template-columns:1fr;gap:12px}.rider-card{min-height:285px}.riders-share-inner{padding-block:55px}.riders-share h2{font-size:62px}}
+@media(prefers-reduced-motion:reduce){.rider-card img{transition:none}}
