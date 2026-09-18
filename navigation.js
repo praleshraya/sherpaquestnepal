@@ -114,6 +114,14 @@
   });
   nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+  function updateScrollNavigation() {
+    const away = window.innerWidth > 760 && window.scrollY > 52;
+    if (away && activeMenu) closeMenu();
+    header.classList.toggle('nav-away', away);
+  }
+  window.addEventListener('scroll', updateScrollNavigation, {passive:true});
+  window.addEventListener('resize', updateScrollNavigation);
+  updateScrollNavigation();
   const searchForm = document.querySelector('#search-form');
   searchForm?.addEventListener('submit', event => {
     event.preventDefault();

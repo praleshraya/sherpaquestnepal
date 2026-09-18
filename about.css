@@ -17,7 +17,7 @@
 .about-connection{display:grid;grid-template-columns:1fr 1fr;gap:12%;padding-block:105px}
 .about-connection>div:first-child>p:last-child{max-width:360px;line-height:1.8;color:#4b5b50}
 .about-contact-links{display:flex;flex-direction:column;border-top:1px solid var(--line);align-self:center}
-.about-contact-links a{display:grid;grid-template-columns:1fr auto;gap:6px;border-bottom:1px solid var(--line);padding:20px 0}
+.about-contact-links a{display:grid;grid-template-columns:1fr;gap:6px;border-bottom:1px solid var(--line);padding:20px 0}
 .about-contact-links small{grid-column:1/-1;color:var(--green);font-size:10px;font-weight:800;letter-spacing:.12em}
 .about-contact-links strong{font-size:17px;overflow-wrap:anywhere}
 .about-contact-links a:hover strong{text-decoration:underline}

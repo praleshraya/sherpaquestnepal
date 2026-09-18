@@ -1,0 +1,131 @@
+/* Sherpa Quest brand palette. The existing --green token is retained for shared components. */
+:root{
+  --green:#c41427;
+  --deep:#171719;
+  --ink:#19191b;
+  --muted:#70696b;
+  --paper:#f7f4f4;
+  --line:#e7dfe0;
+  --cream:#f5eeee;
+}
+
+body{color:var(--ink);background:#fff}
+.announcement{background:#202023;color:#f5eeee}
+.site-header{background:#000;color:#fff;box-shadow:0 4px 20px #0002}
+.header-main .logo,.footer .logo{width:160px;height:70px;background:#000;border-radius:0}
+.header-main .logo img,.footer .logo img{width:158px;height:158px;transform:translate(1px,-43px)}
+.header-search{background:#fff;color:#2b292a}
+.header-search input{color:#292526}
+.header-search button{color:var(--green)}
+.site-header .nav{background:#19191b}
+.nav-trigger:hover,.nav-trigger[aria-expanded="true"],.site-header .nav>a:hover{color:#ff5361;opacity:1}
+.mega-panel{background:#fff;box-shadow:0 22px 48px #1604074d}
+.mega-group:hover,.mega-group.active{background:#fff0f2;color:#a90f20}
+.mega-group.active{box-shadow:inset 3px 0 var(--green)}
+.mega-tile:hover,.mega-tile-link:hover .mega-tile-label{color:var(--green)}
+.mega-tile-image{background:linear-gradient(126deg,#faf8f8 0 36%,#f5ebed 36% 58%,#faf8f8 58% 70%,#f5ebed 70% 86%,#faf8f8 86%)}
+.mega-panel .mega-product-link{background:#fff8f8e8;color:var(--green)}
+.mega-panel .mega-product-link:hover,.mega-panel .mega-product-link:focus-visible{background:var(--green);color:#fff}
+.header-instagram{background:linear-gradient(115deg,#930b19,#d91d31)}
+
+.eyebrow,.intro h2 em,.section-head h2 em,.text-link:hover{color:var(--green)}
+.intro>p,.intro-points{color:#5d5658}
+.category-image,.product-image,.dialog-image,.related-image,.product-main-image,.product-thumb{background:#f8f5f5}
+.category-card:hover .category-image{background:#f5e6e8}
+.product-tag{color:#971020}
+.product-brand,.product-action,.related-card small{color:var(--green)}
+.product-card .product-brand{display:block;width:max-content;max-width:100%}
+.product-card .product-brand:hover{text-decoration:underline}
+.product-image .product-primary,.product-image .product-hover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.product-image .product-hover{opacity:0;transition:opacity .3s ease,transform .35s ease}
+.product-image.has-alternate:hover .product-hover,.product-image.has-alternate:focus-visible .product-hover{opacity:1}
+.product-image.has-alternate:hover .product-primary,.product-image.has-alternate:focus-visible .product-primary{opacity:0}
+.filter{border-color:#e3d9db;color:#4a4143}
+.filter:hover,.filter.active,.load-more:hover{background:var(--green);border-color:var(--green);color:#fff}
+.brands{background:#f7f3f3}
+.brand-strip span{color:#292426}
+.brand-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #e7dfe0;border-radius:12px;overflow:hidden;background:#fff}
+.brand-tile{min-width:0;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:15px;padding:28px 15px 23px;border-right:1px solid #e7dfe0;border-bottom:1px solid #e7dfe0;transition:background .2s,color .2s}
+.brand-tile:hover,.brand-tile:focus-visible{background:#fff2f3;color:var(--green)}
+.brand-mark{flex:1;display:flex;align-items:center;justify-content:center;width:100%;font-family:'Barlow Condensed',sans-serif;font-size:clamp(25px,3vw,46px);font-weight:900;font-style:italic;letter-spacing:-.03em}
+.brand-mark img{display:block;max-width:80%;max-height:95px;object-fit:contain}
+.brand-tile strong{font-size:11px;letter-spacing:.08em;text-align:center}
+.brands-page{padding:80px 0 100px}.brands-page .brand-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.contact-band{background:#ab1022}
+.contact-inner p:not(.eyebrow){color:#fff0f1}
+.contact-band .eyebrow{color:#ffe0e4}
+.footer{background:#080809}
+.footer-brand p,.footer-bottom{color:#bcb2b5}
+.footer-top a:not(.logo){color:#ddd2d4}
+.footer-top a:hover{color:#fff}
+.footer .logo{width:205px;height:105px}
+.footer .logo img{width:205px;height:205px;transform:translate(0,-55px)}
+.floating-chat{color:var(--green)}
+.floating-promo{position:fixed;right:22px;bottom:92px;width:214px;aspect-ratio:3/4;z-index:18;border-radius:15px;background:#181719;box-shadow:0 16px 42px #0006;color:#fff}
+.floating-promo video{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.floating-promo:after{content:"";position:absolute;inset:38% 0 0;border-radius:inherit;background:linear-gradient(transparent,#080608cb);pointer-events:none}
+.floating-promo-copy{position:absolute;bottom:14px;left:13px;right:13px;z-index:1;text-align:center}
+.floating-promo-copy span{display:block;font-size:9px;font-weight:800;letter-spacing:.14em;margin-bottom:8px}
+.floating-promo-copy a{display:block;padding:12px;border-radius:30px;background:#fff;color:#1a1719;font-size:11px;font-weight:800}
+.floating-promo-copy a:hover{background:#f6dfe2;color:#a10e1f}
+.floating-promo-close{position:absolute;z-index:2;top:-13px;right:-13px;width:32px;height:32px;border:1px solid #fff;border-radius:50%;background:#191719;color:#fff;font-size:24px;line-height:1}
+.floating-promo[hidden]{display:none}
+
+.feature-carousel{background:#262022}
+.feature-slide:after{background:linear-gradient(90deg,#120d0fe8,#2a1017ad 48%,#180a0d33 88%)}
+.feature-kicker{color:#ffe0e3}
+.feature-copy h1 em{color:#ff5b68}
+.feature-cta,.helmet-cta{background:var(--green);color:#fff}
+.feature-link:hover .feature-cta,.helmet-slide-link:hover .helmet-cta{background:#a40d1e;color:#fff}
+.feature-product{box-shadow:0 26px 50px #1b060a52}
+.feature-product-tag{color:var(--green)}
+.feature-product-name{color:#30272a}
+.carousel-arrow{color:var(--green)}
+.promo-deck{background:linear-gradient(115deg,#a60e20,#d12a3b 57%,#272124);box-shadow:0 22px 55px #620a162b}
+.promo-deck-head>p{color:#fff1f2}
+.promo-deck-cards>a{color:#211d1f}
+.promo-deck-cards>a:hover{box-shadow:0 12px 28px #39050d50}
+.promo-card-image{background:#f8f5f5}
+.promo-card-copy small{color:var(--green)}
+.helmet-carousel{background:#f6f1f2}
+.helmet-slide{background:linear-gradient(125deg,#f9f6f6,#f3e7e9 70%,#f8f2f3)}
+.helmet-slide-alt{background:linear-gradient(125deg,#fff9f7,#f5e9e9 70%,#f2e2e5)}
+.helmet-slide-link{color:#211c1e}
+.helmet-copy h2 em{color:var(--green)}
+.helmet-copy>p:not(.eyebrow){color:#625b5d}
+.helmet-lineup span{box-shadow:0 20px 34px #8b35401c}
+.helmet-carousel .carousel-arrow{color:var(--green);border-color:#ead0d4}
+.helmet-carousel .carousel-dots button{background:#bd9fa4}
+.helmet-carousel .carousel-dots button.active{background:var(--green)}
+
+.about-hero-shade{background:linear-gradient(90deg,#110b0cde,#350f19a0 56%,#25091130)}
+.about-story h2 em,.about-categories h2 em,.about-connection h2 em{color:var(--green)}
+.about-story-copy,.about-connection>div:first-child>p:last-child{color:#5c5456}
+.about-categories{background:#f8f4f4}
+.about-category-grid a:hover{background:#f5e6e8;color:var(--green)}
+.about-contact-links small{color:var(--green)}
+
+.breadcrumbs{color:#746a6c}
+.breadcrumbs span:last-child{color:#2c2527}
+.product-summary,.product-description>p:last-child{color:#5d5557}
+.detail-whatsapp{background:var(--green)}
+.detail-whatsapp:hover{background:#a10e1f}
+.detail-options span,.detail-service span,.product-description h2 em{color:var(--green)}
+.product-thumb{border-color:#e5dadd}
+.product-thumb.active,.product-thumb:hover{border-color:var(--green)}
+
+@media(max-width:760px){
+  .brand-grid,.brands-page .brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .brand-tile{min-height:145px;padding:19px 10px 16px}
+  .brand-mark img{max-height:65px}
+  .floating-promo{width:132px;bottom:82px;right:15px;border-radius:12px}
+  .floating-promo-copy{left:8px;right:8px;bottom:8px}
+  .floating-promo-copy span{font-size:7px;margin-bottom:5px}
+  .floating-promo-copy a{font-size:9px;padding:8px 3px}
+  .header-main .logo{width:137px;height:58px}
+  .header-main .logo img{width:132px;height:132px;transform:translate(1px,-36px)}
+  .site-header.menu-open .nav{background:#19191b}
+  .site-header.menu-open .nav>a,.site-header.menu-open .nav-trigger{border-color:#ffffff24}
+  .mega-group.active{box-shadow:inset 0 -3px var(--green)}
+  .feature-slide:after{background:linear-gradient(180deg,#150d10d9,#29101688 55%,#180a0d33)}
+}

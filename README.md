@@ -24,7 +24,13 @@ Run `python3 -m http.server 4173` from this folder and open `http://localhost:41
 
 The workbook contains no product prices, inventory levels, checkout rules, or delivery policies, so the storefront uses product inquiries instead of a cart or checkout. Confirm product claims, stock, and variants before publishing commercially.
 
-The header stays fixed in height while scrolling so dropdowns remain aligned. On narrow screens the menu row collapses to a hamburger control. Dropdown tile labels lead to filtered catalog views; their plus links open the pictured product page. The Instagram follower number is a static snapshot and should be refreshed periodically.
+The logo, search and action row stays sticky while the desktop menu row fades away on scroll. On narrow screens the menu row collapses to a hamburger control. Dropdown tile labels lead to filtered catalog views; their plus links open the pictured product page. The Instagram button alternates between Follow and a static follower snapshot; refresh that number periodically.
+
+The black, white and red palette is defined in `theme.css`. Product page stories, feature rows, sizes, color labels and photo mappings live in `scripts/product_content.py`; running `python3 scripts/build_product_pages.py` regenerates all product pages after a content change. Color choices switch to a matching local photo when one is available, and the inquiry message includes the selected size and color.
+
+Product pages now show the short story, feature highlights and specifications in collapsible sections beside the gallery. Catalog cards and related cards show a second local photo on hover when available. The Brands navigation opens `brands.html`, and brand tiles lead to a filtered product grid. The floating, muted video promotion uses `floating_ad_promotion_video.mov`; visitors can close it for the current browser session. Regenerate the auxiliary pages with `python3 scripts/build_about_page.py` and `python3 scripts/build_brands_page.py` after changing shared navigation or brand tiles.
+
+The homepage places assurance cards, a curated New Arrivals row, and Shop by Luggage tiles directly after the main carousel. The product and brand counts in the assurance panel are calculated from `data/products.json` in `script.js`. Arrival tiles use selected existing catalog products; confirm which items are truly new before publishing.
 
 ## WordPress migration
 
